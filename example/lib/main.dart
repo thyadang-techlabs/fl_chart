@@ -1,6 +1,7 @@
 import 'package:example/bar_chart/bar_chart_page.dart';
 import 'package:example/bar_chart/bar_chart_page2.dart';
 import 'package:example/bar_chart/bar_chart_page3.dart';
+import 'package:example/custom_radar_chart/custom_radar_chart_page.dart';
 import 'package:example/line_chart/line_chart_page.dart';
 import 'package:example/line_chart/line_chart_page2.dart';
 import 'package:example/line_chart/line_chart_page3.dart';
@@ -55,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
     BarChartPage3(),
     ScatterChartPage(),
     RadarChartPage(),
+    CustomRadarChartPage(),
   ];
 
   bool get isDesktopOrWeb => PlatformInfo().isDesktopOrWeb();
