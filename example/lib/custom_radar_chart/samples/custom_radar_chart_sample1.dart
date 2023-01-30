@@ -21,7 +21,13 @@ class _CustomRadarChartSample1State extends State<CustomRadarChartSample1> {
       child: RadarChart(
         swapAnimationDuration: const Duration(milliseconds:  400),
         RadarChartData(
-          radarBackgroundColor: Colors.yellow,
+          tickInnerPaintColorEven: const Color(0xFFF4F7FE),
+          tickInnerPaintColorOdd: const Color(0xFFFFFFFF),
+          borderPointPaintColor: const Color(0xFFBCC3D3),
+          borderPointFillPaintColor: const Color(0xFFF4F7FE),
+          radialGraphPaintColor: const Color(0xFFF4F7FE),
+          radialGraphPaintColor2: const Color(0xFF20DEE5),
+          radarBackgroundColor: const Color(0xFFF4F7FE),
           radarShape: RadarShape.polygon,
           // 외곽 선 안 다각형 개수
           tickCount: 4,
@@ -29,12 +35,13 @@ class _CustomRadarChartSample1State extends State<CustomRadarChartSample1> {
           // 외곽선
           radarBorderData: const BorderSide(color: Color(0xFFBCC3D3)),
           // 외곽선 안에 다각형
-          tickBorderData: const BorderSide(color: Color(0xFFBCC3D3)),
+          tickBorderData: const BorderSide(color: Color(0xFFBCC3D3), width: 2),
           // 항목을 나타내는 사선
           gridBorderData: const BorderSide(color: Color(0xFFBCC3D3)),
           dataSets: [
             RadarDataSet(
-              fillColor: const Color(0xFF20DEE5).withOpacity(0.7),
+              // fillColor: Color.lerp(const Color(0xFF20DEE5).withOpacity(0.8), Colors.black.withOpacity(0.1), 0.33),
+              fillColor: const Color(0xFF20DEE5).withOpacity(0.5),
               borderColor: const Color(0xFF20DEE5),
               entryRadius: 0,
               dataEntries: scoreList.map((score) => RadarEntry(value: score.toDouble())).toList(),

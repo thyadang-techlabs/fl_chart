@@ -56,6 +56,7 @@ class RadarChartData extends BaseChartData with EquatableMixin {
     Color? borderPointPaintColor,
     Color? borderPointFillPaintColor,
     Color? radialGraphPaintColor,
+    Color? radialGraphPaintColor2,
     // custom params end
     BorderSide? radarBorderData,
     RadarShape? radarShape,
@@ -87,6 +88,7 @@ class RadarChartData extends BaseChartData with EquatableMixin {
         borderPointFillPaintColor =
             borderPointFillPaintColor ?? Colors.transparent,
         radialGraphPaintColor = radialGraphPaintColor ?? Colors.transparent,
+        radialGraphPaintColor2 = radialGraphPaintColor2 ?? Colors.transparent,
         radarBorderData = radarBorderData ?? const BorderSide(width: 2),
         radarShape = radarShape ?? RadarShape.circle,
         radarTouchData = radarTouchData ?? RadarTouchData(),
@@ -108,6 +110,7 @@ class RadarChartData extends BaseChartData with EquatableMixin {
   final Color borderPointPaintColor;
   final Color borderPointFillPaintColor;
   final Color radialGraphPaintColor;
+  final Color radialGraphPaintColor2;
 
   /// [radarBorderData] is used to draw [RadarChart] border
   final BorderSide radarBorderData;
@@ -202,6 +205,7 @@ class RadarChartData extends BaseChartData with EquatableMixin {
     Color? borderPointPaintColor,
     Color? borderPointFillPaintColor,
     Color? radialGraphPaintColor,
+    Color? radialGraphPaintColor2,
     BorderSide? radarBorderData,
     RadarShape? radarShape,
     GetTitleByIndexFunction? getTitle,
@@ -227,6 +231,8 @@ class RadarChartData extends BaseChartData with EquatableMixin {
             borderPointFillPaintColor ?? this.borderPointFillPaintColor,
         radialGraphPaintColor:
             radialGraphPaintColor ?? this.radialGraphPaintColor,
+        radialGraphPaintColor2:
+            radialGraphPaintColor2 ?? this.radialGraphPaintColor,
         radarBorderData: radarBorderData ?? this.radarBorderData,
         radarShape: radarShape ?? this.radarShape,
         getTitle: getTitle ?? this.getTitle,
@@ -259,6 +265,8 @@ class RadarChartData extends BaseChartData with EquatableMixin {
             a.borderPointFillPaintColor, b.borderPointFillPaintColor, t),
         radialGraphPaintColor:
             Color.lerp(a.radialGraphPaintColor, b.radialGraphPaintColor, t),
+        radialGraphPaintColor2:
+            Color.lerp(a.radialGraphPaintColor2, b.radialGraphPaintColor2, t),
         getTitle: b.getTitle,
         titleTextStyle: TextStyle.lerp(a.titleTextStyle, b.titleTextStyle, t),
         titlePositionPercentageOffset: lerpDouble(
@@ -293,6 +301,7 @@ class RadarChartData extends BaseChartData with EquatableMixin {
         borderPointPaintColor,
         borderPointFillPaintColor,
         radialGraphPaintColor,
+        radialGraphPaintColor2,
         radarBorderData,
         radarShape,
         getTitle,
