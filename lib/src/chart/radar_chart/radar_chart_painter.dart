@@ -155,60 +155,58 @@ class RadarChartPainter extends BaseChartPainter<RadarChartData> {
 
     _tickInnerPaint.style = PaintingStyle.fill;
 
-    /// draw radar ticks
-    ticks.sublist(0, ticks.length - 1).asMap().forEach(
-      (index, tick) {
-        final tickRadius = tickDistance * (ticks.length - index - 1);
-        if (data.radarShape == RadarShape.circle) {
-          canvasWrapper.drawCircle(centerOffset, tickRadius, _tickPaint);
-        } else {
-          if (index.isEven) {
-            // _tickInnerPaint.color = data.tickInnerPaintColorEven;
-            _tickInnerPaint.color = Colors.red;
-          } else {
-            // _tickInnerPaint.color = data.tickInnerPaintColorOdd;
-            _tickInnerPaint.color = Colors.blue;
-          }
-          canvasWrapper
-            ..drawPath(
-              dashPath(
-                _generatePolygonPath(
-                  centerX,
-                  centerY,
-                  tickRadius,
-                  data.titleCount,
-                  holder,
-                ),
-                dashArray: CircularIntervalList<double>([2.5, 5]),
-                dashOffset: DashOffset.percentage(0.005),
-              ),
-              _tickPaint,
-            )
-            ..drawPath(
-              _generatePolygonPath(
-                centerX,
-                centerY,
-                tickRadius,
-                data.titleCount,
-                holder,
-              ),
-              _tickInnerPaint,
-            );
-        }
-
-        _ticksTextPaint
-          ..text = TextSpan(
-            text: tick.toStringAsFixed(1),
-            style: Utils().getThemeAwareTextStyle(context, data.ticksTextStyle),
-          )
-          ..textDirection = TextDirection.ltr
-          ..layout(maxWidth: size.width);
-        canvasWrapper.drawText(
-          _ticksTextPaint,
-          Offset(centerX + 5, centerY - tickRadius - _ticksTextPaint.height),
-        );
-      },
-    );
+    // /// draw radar ticks
+    // ticks.sublist(0, ticks.length - 1).asMap().forEach(
+    //   (index, tick) {
+    //     final tickRadius = tickDistance * (ticks.length - index - 1);
+    //     if (data.radarShape == RadarShape.circle) {
+    //       canvasWrapper.drawCircle(centerOffset, tickRadius, _tickPaint);
+    //     } else {
+    //       if (index.isEven) {
+    //         _tickInnerPaint.color = data.tickInnerPaintColorEven;
+    //       } else {
+    //         _tickInnerPaint.color = data.tickInnerPaintColorOdd;
+    //       }
+    //       canvasWrapper
+    //         ..drawPath(
+    //           dashPath(
+    //             _generatePolygonPath(
+    //               centerX,
+    //               centerY,
+    //               tickRadius,
+    //               data.titleCount,
+    //               holder,
+    //             ),
+    //             dashArray: CircularIntervalList<double>([2.5, 5]),
+    //             dashOffset: DashOffset.percentage(0.005),
+    //           ),
+    //           _tickPaint,
+    //         )
+    //         ..drawPath(
+    //           _generatePolygonPath(
+    //             centerX,
+    //             centerY,
+    //             tickRadius,
+    //             data.titleCount,
+    //             holder,
+    //           ),
+    //           _tickInnerPaint,
+    //         );
+    //     }
+    //
+    //     _ticksTextPaint
+    //       ..text = TextSpan(
+    //         text: tick.toStringAsFixed(1),
+    //         style: Utils().getThemeAwareTextStyle(context, data.ticksTextStyle),
+    //       )
+    //       ..textDirection = TextDirection.ltr
+    //       ..layout(maxWidth: size.width);
+    //     canvasWrapper.drawText(
+    //       _ticksTextPaint,
+    //       Offset(centerX + 5, centerY - tickRadius - _ticksTextPaint.height),
+    //     );
+    //   },
+    // );
   }
 
   Path _generatePolygonPath(
