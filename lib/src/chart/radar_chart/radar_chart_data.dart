@@ -89,7 +89,7 @@ class RadarChartData extends BaseChartData with EquatableMixin {
             borderPointFillPaintColor ?? Colors.transparent,
         radialGraphPaintColor = radialGraphPaintColor ?? Colors.transparent,
         radialGraphPaintColor2 = radialGraphPaintColor2 ?? Colors.transparent,
-        radarBorderData = radarBorderData ?? const BorderSide(width: 2),
+        radarBorderData = radarBorderData ?? const BorderSide(width: 0),
         radarShape = radarShape ?? RadarShape.circle,
         radarTouchData = radarTouchData ?? RadarTouchData(),
         titlePositionPercentageOffset = titlePositionPercentageOffset ?? 0.2,
