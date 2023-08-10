@@ -163,9 +163,11 @@ class RadarChartPainter extends BaseChartPainter<RadarChartData> {
           canvasWrapper.drawCircle(centerOffset, tickRadius, _tickPaint);
         } else {
           if (index.isEven) {
-            _tickInnerPaint.color = data.tickInnerPaintColorEven;
+            // _tickInnerPaint.color = data.tickInnerPaintColorEven;
+            _tickInnerPaint.color = Colors.red;
           } else {
-            _tickInnerPaint.color = data.tickInnerPaintColorOdd;
+            // _tickInnerPaint.color = data.tickInnerPaintColorOdd;
+            _tickInnerPaint.color = Colors.blue;
           }
           canvasWrapper
             ..drawPath(
