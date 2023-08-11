@@ -55,7 +55,6 @@ class RadarChartPainter extends BaseChartPainter<RadarChartData> {
   late Paint _graphInnerBorderPaint;
   late Paint _graphPointPaint;
 
-  // late TextPainter _ticksTextPaint;
   late TextPainter _titleTextPaint;
 
   List<RadarDataSetsPosition>? dataSetsPosition;
@@ -154,59 +153,6 @@ class RadarChartPainter extends BaseChartPainter<RadarChartData> {
       ..strokeWidth = data.tickBorderData.width;
 
     _tickInnerPaint.style = PaintingStyle.fill;
-
-    // /// draw radar ticks
-    // ticks.sublist(0, ticks.length - 1).asMap().forEach(
-    //   (index, tick) {
-    //     final tickRadius = tickDistance * (ticks.length - index - 1);
-    //     if (data.radarShape == RadarShape.circle) {
-    //       canvasWrapper.drawCircle(centerOffset, tickRadius, _tickPaint);
-    //     } else {
-    //       if (index.isEven) {
-    //         _tickInnerPaint.color = data.tickInnerPaintColorEven;
-    //       } else {
-    //         _tickInnerPaint.color = data.tickInnerPaintColorOdd;
-    //       }
-    //       canvasWrapper
-    //         ..drawPath(
-    //           dashPath(
-    //             _generatePolygonPath(
-    //               centerX,
-    //               centerY,
-    //               tickRadius,
-    //               data.titleCount,
-    //               holder,
-    //             ),
-    //             dashArray: CircularIntervalList<double>([2.5, 5]),
-    //             dashOffset: DashOffset.percentage(0.005),
-    //           ),
-    //           _tickPaint,
-    //         )
-    //         ..drawPath(
-    //           _generatePolygonPath(
-    //             centerX,
-    //             centerY,
-    //             tickRadius,
-    //             data.titleCount,
-    //             holder,
-    //           ),
-    //           _tickInnerPaint,
-    //         );
-    //     }
-    //
-    //     _ticksTextPaint
-    //       ..text = TextSpan(
-    //         text: tick.toStringAsFixed(1),
-    //         style: Utils().getThemeAwareTextStyle(context, data.ticksTextStyle),
-    //       )
-    //       ..textDirection = TextDirection.ltr
-    //       ..layout(maxWidth: size.width);
-    //     canvasWrapper.drawText(
-    //       _ticksTextPaint,
-    //       Offset(centerX + 5, centerY - tickRadius - _ticksTextPaint.height),
-    //     );
-    //   },
-    // );
   }
 
   Path _generatePolygonPath(
@@ -376,21 +322,7 @@ class RadarChartPainter extends BaseChartPainter<RadarChartData> {
     dataSetsPosition!.asMap().forEach((index, dataSetOffset) {
       final pointOffsetList = <Offset>[];
       final graph = data.dataSets[index];
-      _radialGraphPaint
-        // ..shader = RadialGradient(
-        //   radius: 0.3,
-        //   colors: [
-        //     data.radialGraphPaintColor,
-        //     graph.fillColor
-        //   ],
-        //   // stops: [0.2, 0.5]
-        // ).createShader(
-        //   Rect.fromCircle(
-        //     center: Offset(centerX, centerY),
-        //     radius: radarRadius(size),
-        //   ),
-        // )
-        ..style = PaintingStyle.fill;
+      _radialGraphPaint.style = PaintingStyle.fill;
 
       _graphPaint
         ..color = graph.fillColor
@@ -410,28 +342,8 @@ class RadarChartPainter extends BaseChartPainter<RadarChartData> {
         ..color = _graphBorderPaint.color
         ..style = PaintingStyle.fill;
 
-      // final firstOffset = Offset(
-      //   dataSetOffset.entriesOffset.first.dx,
-      //   dataSetOffset.entriesOffset.first.dy,
-      // );
-      //
-      // path.moveTo(firstOffset.dx, firstOffset.dy);
-      //
-      // canvasWrapper.drawCircle(
-      //   firstOffset,
-      //   graph.entryRadius,
-      //   _graphPointPaint,
-      // );
       dataSetOffset.entriesOffset.asMap().forEach((index, pointOffset) {
-        // if (index == 0) return;
         pointOffsetList.add(pointOffset);
-        // path.lineTo(pointOffset.dx, pointOffset.dy);
-
-        // canvasWrapper.drawCircle(
-        //   pointOffset,
-        //   graph.entryRadius,
-        //   _graphPointPaint,
-        // );
       });
       final outerBorderPath = Path();
       for (var i = 0; i < pointOffsetList.length; i++) {
@@ -456,25 +368,10 @@ class RadarChartPainter extends BaseChartPainter<RadarChartData> {
 
 
         canvasWrapper.drawPath(path, _graphPaint);
-
-        // if (i.isOdd) {
-        //   canvasWrapper.drawPath(path, _radialGraphPaint);
-        // } else {
-        //   canvasWrapper.drawPath(path, _graphPaint);
-        // }
-
-        // canvasWrapper.drawPath(path, _graphInnerBorderPaint);
       }
       canvasWrapper
         ..drawPath(outerBorderPath, _graphBorderPaint)
         ..clipPath(outerBorderPath);
-
-      // path.close();
-      // outerBorderPath.close();
-      // canvasWrapper
-      //   ..drawPath(path, _graphPaint)
-      //   ..drawPath(path, _graphInnerBorderPaint)
-      //   ..drawPath(outerBorderPath, _graphBorderPaint);
     });
   }
 
