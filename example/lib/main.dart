@@ -1,14 +1,5 @@
-import 'package:example/bar_chart/bar_chart_page.dart';
-import 'package:example/bar_chart/bar_chart_page2.dart';
-import 'package:example/bar_chart/bar_chart_page3.dart';
 import 'package:example/custom_radar_chart/custom_radar_chart_page.dart';
-import 'package:example/line_chart/line_chart_page.dart';
-import 'package:example/line_chart/line_chart_page2.dart';
-import 'package:example/line_chart/line_chart_page3.dart';
-import 'package:example/line_chart/line_chart_page4.dart';
-import 'package:example/pie_chart/pie_chart_page.dart';
 import 'package:example/radar_chart/radar_chart_page.dart';
-import 'package:example/scatter_chart/scatter_chart_page.dart';
 import 'package:example/utils/platform_info.dart';
 import 'package:flutter/material.dart';
 
@@ -46,15 +37,15 @@ class _MyHomePageState extends State<MyHomePage> {
   final _duration = const Duration(milliseconds: 300);
   final _curve = Curves.easeInOutCubic;
   final _pages = const [
-    LineChartPage(),
-    BarChartPage(),
-    BarChartPage2(),
-    PieChartPage(),
-    LineChartPage2(),
-    LineChartPage3(),
-    LineChartPage4(),
-    BarChartPage3(),
-    ScatterChartPage(),
+    // LineChartPage(),
+    // BarChartPage(),
+    // BarChartPage2(),
+    // PieChartPage(),
+    // LineChartPage2(),
+    // LineChartPage3(),
+    // LineChartPage4(),
+    // BarChartPage3(),
+    // ScatterChartPage(),
     RadarChartPage(),
     CustomRadarChartPage(),
   ];
