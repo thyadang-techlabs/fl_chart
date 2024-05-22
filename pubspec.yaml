@@ -1,6 +1,6 @@
 name: fl_chart
 description: A highly customizable Flutter chart library that supports Line Chart, Bar Chart, Pie Chart, Scatter Chart, and Radar Chart.
-version: 0.55.2
+version: 0.68.0
 homepage: https://github.com/imaNNeo/fl_chart
 
 environment:
@@ -13,14 +13,14 @@ dependencies:
   equatable: ^2.0.5
   flutter:
     sdk: flutter
+  mockito: ^5.4.4
+  vector_math: ^2.1.4
+  very_good_analysis: ^5.1.0
 
 dev_dependencies:
-  build_runner: ^2.2.1
+  build_runner: ^2.4.6
   flutter_test:
     sdk: flutter
-  mockito: ^5.3.2
-  vector_math: ^2.1.2 #Added to use in some generated codes of mockito
-  very_good_analysis: ^3.1.0
 
 screenshots:
   - description: 'This screenshot shows two LineCharts. The first one has curved lines with different colors. The second one has a below-colored area.'
